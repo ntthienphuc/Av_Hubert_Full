@@ -25,16 +25,14 @@ The packaged experiment records produced the following measurements. These are h
 |---|---:|
 | Best validation accuracy | 29.574% |
 | Best validation perplexity | 22.91 |
-| Test WER | 38.4492% |
-| Test-present WER | 12.2088% |
+| Test WER (`checkpoint_best.pt`) | 38.4492% |
 | Best update | 48,856 / 50,000 |
 
-Lower WER is better. `test-present` is the subset where the required visual speech content is present and usable; it must not be presented as the full-test score.
+Lower WER is better. The reported test WER is the standard test-set result decoded from `checkpoint_best.pt`.
 
 ```text
 WER (%) — lower is better
-Full test      38.45 |██████████████████████████████████████
-Test-present   12.21 |████████████
+Test — checkpoint_best.pt   38.45 |██████████████████████████████████████
 ```
 
 The stable recipe used video-only input, 96×96 MediaPipe mouth crops, a Vietnamese unigram SentencePiece vocabulary of 1,000 pieces, learning rate `2e-4`, 5,000 warm-up steps, 4,000 frozen fine-tuning updates, gradient clipping `1.0`, and 50,000 total updates.
